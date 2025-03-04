@@ -131,7 +131,7 @@ export const executeAction = (
 
           // 얽힘 상태인 경우 연결된 셀도 함께 변경
           if (newBoard[x][y].entangled && newBoard[x][y].linkedWith) {
-            const { lx, ly } = newBoard[x][y].linkedWith;
+            const { lx, ly } = newBoard[x][y].linkedWith!;
             newBoard[lx][ly].state = newState;
             newBoard[lx][ly].interferenceCreatedAt = turn; // 얽힌 셀도 간섭 턴 기록
 
@@ -298,7 +298,7 @@ export const executeAction = (
 
       // 얽힘 관계 해제
       if (newBoard[x][y].linkedWith) {
-        const { lx, ly } = newBoard[x][y].linkedWith;
+        const { lx, ly } = newBoard[x][y].linkedWith!;
 
         newBoard[x][y].entangled = false;
         newBoard[x][y].linkedWith = null;

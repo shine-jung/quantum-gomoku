@@ -54,7 +54,7 @@ const Board: React.FC<BoardProps> = ({
               y={y}
               onClick={handleCellClick}
               isSelected={
-                selectedCell && selectedCell.x === x && selectedCell.y === y
+                !!(selectedCell && selectedCell.x === x && selectedCell.y === y)
               }
               isHighlighted={highlightedCells.some(
                 (cell) => cell.x === x && cell.y === y

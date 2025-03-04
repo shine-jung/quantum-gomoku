@@ -59,7 +59,6 @@ const QuantumGomoku: React.FC = () => {
 
     // 액션
     actions,
-    playSound,
     resetGame,
     handleGameModeSelect,
     resetSelection,
