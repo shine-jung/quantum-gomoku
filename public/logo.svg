@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 배경 -->
+  <rect width="200" height="200" fill="#1E1E2E" rx="20" ry="20" />
+  
+  <!-- 그라디언트 정의 -->
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3C86F4" />
+      <stop offset="100%" stop-color="#4361EE" />
+    </linearGradient>
+    
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5E7A" />
+      <stop offset="100%" stop-color="#E63946" />
+    </linearGradient>
+    
+    <linearGradient id="superpositionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3C86F4" />
+      <stop offset="50%" stop-color="#BB55FF" />
+      <stop offset="100%" stop-color="#FF5E7A" />
+    </linearGradient>
+    
+    <linearGradient id="linkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFC53D" />
+      <stop offset="100%" stop-color="#FFD60A" />
+    </linearGradient>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- 오목 그리드 -->
+  <g transform="translate(40, 40)">
+    <!-- 수평선 -->
+    <line x1="0" y1="0" x2="120" y2="0" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="0" y1="30" x2="120" y2="30" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="0" y1="60" x2="120" y2="60" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="0" y1="90" x2="120" y2="90" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="0" y1="120" x2="120" y2="120" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    
+    <!-- 수직선 -->
+    <line x1="0" y1="0" x2="0" y2="120" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="30" y1="0" x2="30" y2="120" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="60" y1="0" x2="60" y2="120" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="90" y1="0" x2="90" y2="120" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="120" y1="0" x2="120" y2="120" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2" />
+    
+    <!-- 파동 돌 -->
+    <circle cx="30" cy="30" r="12" fill="url(#blueGradient)" filter="url(#glow)" />
+    <circle cx="90" cy="90" r="12" fill="url(#blueGradient)" filter="url(#glow)" />
+    
+    <!-- 입자 돌 -->
+    <circle cx="30" cy="90" r="12" fill="url(#redGradient)" filter="url(#glow)" />
+    <circle cx="90" cy="30" r="12" fill="url(#redGradient)" filter="url(#glow)" />
+    
+    <!-- 중첩 상태 -->
+    <circle cx="60" cy="60" r="12" fill="url(#superpositionGradient)" filter="url(#glow)" />
+  </g>
+  
+  <!-- 텍스트 -->
+  <text x="100" y="180" 
+        font-family="Arial, sans-serif" 
+        font-weight="bold" 
+        font-size="14" 
+        text-anchor="middle" 
+        fill="#ffffff">QUANTUM GOMOKU</text>
+</svg>
