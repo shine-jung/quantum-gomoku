@@ -171,7 +171,7 @@ const QuantumGomoku: React.FC = () => {
             <p>
               양자 물리학의 원리(중첩, 측정, 얽힘, 간섭)를 활용한 전략 보드 게임
             </p>
-            <p className="mt-1">Version 2.1.0</p>
+            <p className="mt-1">Version 1.0.0</p>
           </div>
         </div>
       </div>
