@@ -22,7 +22,6 @@ import { selectAIAction } from "../utils/ai-logic";
 
 export const useGameState = () => {
   // 스케일 조정을 위한 설정
-  const [viewportHeight, setViewportHeight] = useState<number>(0);
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   // 게임 상태
@@ -64,9 +63,6 @@ export const useGameState = () => {
   // 환경 설정 (뷰포트 높이, 모바일 감지)
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // 초기 viewportHeight 설정
-      setViewportHeight(window.innerHeight);
-
       // 모바일 감지
       const checkIfMobile = () => {
         setIsMobile(window.innerWidth < 768);
@@ -77,7 +73,6 @@ export const useGameState = () => {
 
       // 리사이즈 이벤트 핸들러
       const handleResize = () => {
-        setViewportHeight(window.innerHeight);
         checkIfMobile();
       };
 
@@ -532,7 +527,6 @@ export const useGameState = () => {
     actionHint,
     isFirstGame,
     showLog,
-    viewportHeight,
     isMobile,
 
     // 액션

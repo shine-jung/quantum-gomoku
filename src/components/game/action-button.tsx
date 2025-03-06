@@ -41,7 +41,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       </button>
 
       {/* 호버 시 툴팁 표시 */}
-      <div className="absolute z-50 left-0 bottom-full mb-2 w-64 bg-gray-800 text-white text-xs rounded-lg p-3 hidden group-hover:block shadow-xl">
+      <div className="absolute z-50 right-full top-0 mr-2 w-64 bg-gray-800 text-white text-xs rounded-lg p-3 hidden group-hover:block shadow-xl">
         <div className="font-bold mb-1">{actionInfo.name}</div>
         <div>{actionInfo.description}</div>
       </div>

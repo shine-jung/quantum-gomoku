@@ -29,18 +29,16 @@ const Board: React.FC<BoardProps> = ({
 }) => {
   return (
     <div
-      className={`${
-        isMobile ? "flex-col" : "flex-1"
-      } bg-gray-800 rounded-xl p-${
-        isMobile ? "1" : "4"
-      } flex flex-col justify-center items-center shadow-xl border border-gray-700`}
+      className={`
+        ${isMobile ? "flex-col" : "flex-1"}
+        bg-gray-800 rounded-xl p-4
+        flex flex-col justify-center items-center
+        shadow-xl border border-gray-700`}
     >
       <div
-        className={`grid grid-cols-9 gap-${
-          isMobile ? "0.5" : "1"
-        } bg-gray-700 p-${isMobile ? "1" : "4"} rounded-lg shadow-inner ${
-          isMobile ? "transform scale-90 origin-top" : ""
-        }`}
+        className={`
+          grid grid-cols-9 gap-${isMobile ? "0.5" : "1"}
+          bg-gray-700 p-${isMobile ? "1" : "4"} rounded-lg shadow-inner`}
       >
         {board.map((row, x) =>
           row.map((cell, y) => (

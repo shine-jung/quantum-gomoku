@@ -392,46 +392,41 @@ export const selectAIAction = (
 
   // 난이도별 선택 방식
   if (difficulty === DIFFICULTY_LEVELS.EASY) {
-    // 쉬움: 상위 70% 중에서 무작위 선택 (+ 최고 점수 액션 20% 확률로 선택)
+    // 쉬움: 상위 30% 중에서 무작위 선택 (+ 최고 점수 액션 20% 확률로 선택)
     if (Math.random() < 0.2) {
-      return possibleActions[0];
-    }
-
-    const cutoff = Math.floor(possibleActions.length * 0.7);
-    const randomIndex = Math.floor(Math.random() * Math.max(1, cutoff));
-    return possibleActions[randomIndex];
-  } else if (difficulty === DIFFICULTY_LEVELS.MEDIUM) {
-    // 보통: 상위 30% 중에서 무작위 선택 (+ 최고 점수 액션 40% 확률로 선택)
-    if (Math.random() < 0.4) {
       return possibleActions[0];
     }
 
     const cutoff = Math.floor(possibleActions.length * 0.3);
     const randomIndex = Math.floor(Math.random() * Math.max(1, cutoff));
     return possibleActions[randomIndex];
+  } else if (difficulty === DIFFICULTY_LEVELS.MEDIUM) {
+    // 보통: 상위 10% 중에서 무작위 선택 (+ 최고 점수 액션 40% 확률로 선택)
+    if (Math.random() < 0.4) {
+      return possibleActions[0];
+    }
+
+    const cutoff = Math.floor(possibleActions.length * 0.1);
+    const randomIndex = Math.floor(Math.random() * Math.max(1, cutoff));
+    return possibleActions[randomIndex];
   } else {
-    // 어려움: 거의 항상 최고 점수 액션 선택 (90% 확률)
+    // 어려움: 항상 최고 점수 액션 선택 (100% 확률)
     const topActions = possibleActions.slice(
       0,
       Math.min(2, possibleActions.length)
     );
 
-    if (Math.random() < 0.9) {
-      return topActions[0]; // 90% 확률로 최고 점수 액션
-    } else {
-      // 10% 확률로 2번째 최고 점수 액션
-      return topActions.length > 1 ? topActions[1] : topActions[0];
-    }
+    return topActions[0];
   }
 };
 
 // 난이도에 따른 무작위 요소 함수
 function difficultyRandomFactor(difficulty: Difficulty): number {
   return difficulty === DIFFICULTY_LEVELS.EASY
-    ? Math.random() * 30
+    ? Math.random() * 10
     : difficulty === DIFFICULTY_LEVELS.MEDIUM
-    ? Math.random() * 15
-    : Math.random() * 5;
+    ? Math.random() * 5
+    : 0;
 }
 
 // 즉각적인 승리 확인
